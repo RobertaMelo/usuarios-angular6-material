@@ -1,0 +1,84 @@
+.sidenav-container {
+  height: 100%;
+  background-color: #F9FAFE;
+}
+
+.sidenav {
+  width: 200px;
+  background-color: rgb(8, 8, 8);
+}
+
+.mat-list-item {
+  color: rgb(255, 255, 255);
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+.mat-card {
+  margin: 10px;
+}
+
+footer.footer {
+  display: flex;
+  align-items: center;
+  background-color: #F5F5F5;
+  height: 30px;
+  width: 100%;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  box-shadow: 
+    0 2px 23px 0 rgba(0, 0, 0, 0.1),
+    0 2px 49px 0 rgba(0, 0, 0, 0.06);
+}
+
+.footer-txt {
+  margin-left: 1150px;
+}
+
+.material-icons.md-14 { font-size: 14px; height: 14px; width: 14px;}
+.material-icons.md-18 { font-size: 18px; height: 18px; width: 18px;}
+.material-icons.md-24 { font-size: 24px; height: 24px; width: 24px;}
+.material-icons.md-36 { font-size: 36px; height: 36px; width: 36px;}
+.material-icons.md-48 { font-size: 48px; height: 48px; width: 48px;}
+
+aside.logo {
+  background-color: rgb(27, 27, 27);;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-tool {
+  background-color: #F9FAFE;
+}
+
+.icon-dash {
+  font-size: 30px; 
+  height: 30px; 
+  width: 30px; 
+  vertical-align: top;
+}
+
+.icon-nav {
+  font-size: 20px; 
+  height: 20px; 
+  width: 20px; 
+  padding-inline-end: 3px;
+  padding-block-end: 4px;
+}
+
+.menu a:hover {
+  background: #a8a2a2;
+}
+.menu a:hover {
+  background:#424444;
+}
+
+.img-toolbar {
+  background-color: rgb(13, 14, 14);
+}

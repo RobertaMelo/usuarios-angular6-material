@@ -1,0 +1,46 @@
+<div class="color-background">
+  <div class="main-div">
+    <mat-card>
+        <div class="center logo-login">
+        <img src="/assets/img/creativeDrive-logo.png" alt="Logo" class="height-login padding">
+        <h1 style="font-weight: light;" class="full-width-input ">Login</h1>
+        </div>  
+        <mat-card-content> 
+          <form [formGroup]="form" (ngSubmit)="login()">
+            <div class="tm-50">
+              <mat-form-field class="full-width-input">
+                    <mat-placeholder>
+                      <mat-icon>lock</mat-icon>
+                    </mat-placeholder>
+                    <input matInput placeholder=" Username" formControlName="userName" required>
+                    <mat-error *ngIf="isFieldInvalid('userName')">
+                      Enter valid Username
+                    </mat-error>
+              </mat-form-field>
+            </div>  
+            <div>
+              <mat-form-field class="full-width-input ">
+                <mat-placeholder>
+                  <mat-icon>visibility</mat-icon>
+                </mat-placeholder>
+                <input matInput type = "password" placeholder=" Password" formControlName="password" required>
+                <mat-error *ngIf="isFieldInvalid('password')">
+                  Enter valid Password
+                </mat-error>
+              </mat-form-field>
+              <span></span>
+            </div> 
+            <div>
+              <p class="blue-text d-flex">Forgot
+                  <a href="#" class="blue-text ml-1"> Password?</a>
+              </p>
+              <div class="right">
+                <button mat-stroked-button style="border-radius: 3px"><i class="material-icons">
+                  </i>Login</button>  
+              </div>  
+             </div>       
+          </form>
+        </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+.main-div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tm-50 {
+    width: 50vh;
+}
+
+.full-width-input {
+    width: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    float: right;
+}
+
+.button-tm {
+    width: 80px; 
+    height: 80px;
+}
+
+.padding {
+    padding-top: 1cm;
+}
+
+.height-login {
+    height: 100px !important;
+}
+

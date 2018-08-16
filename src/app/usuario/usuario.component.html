@@ -1,0 +1,33 @@
+<mat-card-content> 
+  <form fxLayout="column" [formGroup]="form">
+    <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex>
+        <input matInput placeholder="Nome" formControlName="nome" required>
+        <mat-error *ngIf="isFieldInvalid('nome')">
+          Enter valid nome
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex>
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error *ngIf="isFieldInvalid('email')">
+          Enter valid email
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="input-row">
+      <mat-form-field fxFlex>
+        <input matInput placeholder="Senha" formControlName="senha" required>
+        <mat-error *ngIf="isFieldInvalid('senha')">
+          Enter valid senha
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="input-row">
+      <mat-checkbox>Administrador</mat-checkbox>
+      <mat-slide-toggle class="toggle-m">Ativo</mat-slide-toggle>
+    </div>   
+
+  </form>
+</mat-card-content>

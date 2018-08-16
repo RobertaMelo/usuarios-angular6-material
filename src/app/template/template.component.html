@@ -1,0 +1,36 @@
+<mat-sidenav-container class="sidenav-container color-background">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar class="mat-elevation-z2 img-toolbar">
+      <img src="/assets/img/logo-b.png" alt="Logo">
+    </mat-toolbar>
+    <mat-nav-list class="menu"> 
+      <a mat-list-item href="/home" class="menu-area"><mat-icon class="icon-nav">home</mat-icon>Home</a>
+      <a mat-list-item href="/usuario"><mat-icon class="icon-nav">perm_identity</mat-icon>Usuário</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="background-tool mat-elevation-z2">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span><mat-icon class="icon-dash">{{icon}}</mat-icon>{{title}}</span>
+    </mat-toolbar>
+    <mat-card>
+      <router-outlet></router-outlet>
+    </mat-card>
+    <footer class="footer">
+      <p class="footer-txt">Desenvolvido por Roberta Melo</p>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
