@@ -1,3 +1,7 @@
+Acessar a pasta backEnd pelo console e levantar o servidor através do npm start.
+Em outro console voltar uma pasta e mais um npm start para levantar o frontEnd.
+
+
 # NgMaterial
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
