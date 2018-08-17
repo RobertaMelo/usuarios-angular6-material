@@ -1,16 +1,17 @@
 <mat-card-content> 
   <form fxLayout="column" [formGroup]="form">
+    <input type="hidden" formControlName="id">
     <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
       <mat-form-field fxFlex>
-        <input matInput placeholder="Nome" formControlName="nome" required>
-        <mat-error *ngIf="isFieldInvalid('nome')">
-          Enter valid nome
+        <input matInput placeholder="Nome" formControlName="name" required>
+        <mat-error *ngIf="isFieldInvalid('name')">
+          Você deve digitar um nome
         </mat-error>
       </mat-form-field>
       <mat-form-field fxFlex>
         <input matInput placeholder="Email" formControlName="email" required>
         <mat-error *ngIf="isFieldInvalid('email')">
-          Enter valid email
+          Email inválido
         </mat-error>
       </mat-form-field>
     </div>
@@ -19,15 +20,23 @@
       <mat-form-field fxFlex>
         <input matInput placeholder="Senha" formControlName="senha" required>
         <mat-error *ngIf="isFieldInvalid('senha')">
-          Enter valid senha
+            Você deve digitar uma senha
         </mat-error>
       </mat-form-field>
     </div>
 
     <div class="input-row">
-      <mat-checkbox>Administrador</mat-checkbox>
-      <mat-slide-toggle class="toggle-m">Ativo</mat-slide-toggle>
+      <mat-checkbox formControlName="tipo">Administrador</mat-checkbox>
+      <mat-slide-toggle class="toggle-m" formControlName="ativo">Ativo</mat-slide-toggle>
     </div>   
 
+    <div class="input-row">
+      <div class="button-style">
+        <button (click)="salvaUsuario()" mat-stroked-button>Salvar</button>  
+      </div>
+      <div class="button-style">
+        <button (click)="iniciaNovoUsuario()" mat-raised-button class="button-color">Cancelar</button>
+      </div> 
+    </div>
   </form>
 </mat-card-content>

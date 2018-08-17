@@ -34,3 +34,8 @@
     height: 100px !important;
 }
 
+.button-login {
+    border-radius: 3px; 
+    margin-top: 30px;
+}
+

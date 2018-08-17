@@ -36,8 +36,10 @@ footer.footer {
     0 2px 49px 0 rgba(0, 0, 0, 0.06);
 }
 
-.footer-txt {
-  margin-left: 1150px;
+.footer div {
+  width: 100%;
+  text-align: right;
+  margin-right: 10px;
 }
 
 .material-icons.md-14 { font-size: 14px; height: 14px; width: 14px;}
@@ -81,4 +83,27 @@ aside.logo {
 
 .img-toolbar {
   background-color: rgb(13, 14, 14);
+}
+
+.img-toolbar img {
+  width: 165px !important;
+}
+
+.icon-temp {
+  padding-inline-start: 3.1px;
+}
+
+.absolute-right-top {
+  text-align: right; 
+  width: 100%;
+}
+
+.text-user {
+  font-size: 16px;
+}
+
+.button-off {
+  background-color: #bbbbbb;
+  color: #131212;
+  margin-left: 10px;
 }

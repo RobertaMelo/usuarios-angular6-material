@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  filtro = '';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  filtraUsuarios() {
+    if (this.filtro == '') {
+      return;
+    }
+    
+    console.log(this.filtro);
   }
 
 }

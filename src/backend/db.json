@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Roberta Melo",
+      "email": "robertamelo@gmail.com",
+      "ativo": false,
+      "senha": "456",
+      "tipo": "U"
+    },
+    {
+      "id": 2,
+      "name": "Ademilson",
+      "email": "admin",
+      "senha": "admin",
+      "ativo": true,
+      "tipo": "A"
+    },
+    {
+      "id": 3,
+      "name": "JhonJhon",
+      "email": "jhonatancarvalho@gmail.com",
+      "senha": "1234",
+      "tipo": "A",
+      "ativo": true
+    },
+    {
+      "id": 4,
+      "name": "Max",
+      "email": "max@til.com",
+      "senha": "123",
+      "tipo": "U",
+      "ativo": false
+    }
+  ]
+}

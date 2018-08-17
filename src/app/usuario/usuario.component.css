@@ -6,3 +6,14 @@
     padding-inline-start: 15px;
     margin: end;
 }
+
+.button-style {
+    float: right;
+    border-radius: 3px;
+    padding-inline-end: 5px;
+}
+
+.button-color {
+    background-color: #bbbbbb;
+    color: #131212;
+}

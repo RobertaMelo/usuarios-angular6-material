@@ -11,7 +11,7 @@
     </mat-toolbar>
     <mat-nav-list class="menu"> 
       <a mat-list-item href="/home" class="menu-area"><mat-icon class="icon-nav">home</mat-icon>Home</a>
-      <a mat-list-item href="/usuario"><mat-icon class="icon-nav">perm_identity</mat-icon>Usuário</a>
+      <a mat-list-item *ngIf="usuarioLogado.tipo == 'A'" href="/usuario"><mat-icon class="icon-nav">perm_identity</mat-icon>Usuário</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -24,13 +24,21 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span><mat-icon class="icon-dash">{{icon}}</mat-icon>{{title}}</span>
+      <div>
+        <span><mat-icon class="icon-dash">{{icon}}</mat-icon>{{title}}</span>
+     </div>
+     <div class="absolute-right-top">
+        <span class="text-user">Bem vindo, {{usuarioLogado.name}}</span> 
+        <button (click)="logout()" mat-mini-fab class="button-off">
+          <mat-icon class="icon-nav icon-temp md-24">power_settings_new</mat-icon>
+        </button>
+      </div>
     </mat-toolbar>
     <mat-card>
       <router-outlet></router-outlet>
     </mat-card>
     <footer class="footer">
-      <p class="footer-txt">Desenvolvido por Roberta Melo</p>
+      <div>Desenvolvido por Roberta Melo</div>
     </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

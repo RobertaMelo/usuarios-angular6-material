@@ -2,34 +2,19 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-
-// TODO: Replace this with your own data model type
-export interface TableUsuariosItem {
-  id: number;
-  name: string;
-  email: string;
-  ativo: boolean;
-}
-
-// TODO: replace this with real data from your application
-const USUARIOS_DATA: TableUsuariosItem[] = [
-  {id: 1, name: 'Hydrogen', email:'robertameelo91@gmail.com', ativo:true},
-  {id: 2, name: 'Helium', email:'robertameelo91@gmail.com', ativo: null},
-  {id: 3, name: 'Lithium', email: '', ativo: null},
-  {id: 4, name: 'Beryllium', email:'robertameelo91@gmail.com', ativo:false},
-  {id: 5, name: 'Boron', email: '', ativo: null}
-];
+import { UsuarioDTO } from '../../../models/usuario.dto';
 
 /**
  * Data source for the TableUsuarios view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class TableUsuariosDataSource extends DataSource<TableUsuariosItem> {
-  data: TableUsuariosItem[] = USUARIOS_DATA;
+export class TableUsuariosDataSource extends DataSource<UsuarioDTO> {
+  data: UsuarioDTO[] = [];
 
-  constructor(private paginator: MatPaginator, private sort: MatSort) {
+  constructor(private paginator: MatPaginator, private sort: MatSort, private usuarios: UsuarioDTO[]) {
     super();
+    this.data = usuarios;
   }
 
   /**
@@ -37,7 +22,7 @@ export class TableUsuariosDataSource extends DataSource<TableUsuariosItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<TableUsuariosItem[]> {
+  connect(): Observable<UsuarioDTO[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
@@ -64,7 +49,7 @@ export class TableUsuariosDataSource extends DataSource<TableUsuariosItem> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: TableUsuariosItem[]) {
+  private getPagedData(data: UsuarioDTO[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -73,7 +58,7 @@ export class TableUsuariosDataSource extends DataSource<TableUsuariosItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: TableUsuariosItem[]) {
+  private getSortedData(data: UsuarioDTO[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }
@@ -83,6 +68,9 @@ export class TableUsuariosDataSource extends DataSource<TableUsuariosItem> {
       switch (this.sort.active) {
         case 'name': return compare(a.name, b.name, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'email': return compare(a.email, b.email, isAsc);
+        case 'ativo': return compare(a.ativo, b.ativo, isAsc);
+        case 'tipo': return compare(a.tipo, b.tipo, isAsc);
         default: return 0;
       }
     });
