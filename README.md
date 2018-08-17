@@ -1,6 +1,6 @@
 Acessar a pasta backEnd pelo console e levantar o servidor através do npm start.
 Em outro console voltar uma pasta e mais um npm start para levantar o frontEnd.
-
+Usuario e senha padrão : admin admin
 
 # NgMaterial
 
