@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container flex">
   <mat-form-field>
     <input matInput [(ngModel)]="filtro" (keyup)="filtraUsuarios()">
     <mat-label><mat-icon>search</mat-icon> Pesquisa de Usuários</mat-label>
@@ -53,9 +53,9 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator #paginator
-    [pageIndex]="0"
-    [pageSize]="8"
-    [pageSizeOptions]="[2, 5, 8]">
+  <mat-paginator #paginator>
+      [pageIndex]="0"
+      [pageSize]="8"
+      [pageSizeOptions]="[2, 5, 8]">
   </mat-paginator>
 </div>

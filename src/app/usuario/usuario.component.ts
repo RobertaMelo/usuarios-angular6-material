@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuarioDTO } from '../../models/usuario.dto';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { StorageService } from '../../services/storage.service';
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.css']
 })
-export class UsuarioComponent implements OnInit {
+export class UsuarioComponent implements OnInit, OnDestroy {
 
   usuarioLogado: UsuarioDTO;
   sub: any;
@@ -24,14 +24,7 @@ export class UsuarioComponent implements OnInit {
     private usuarioService: UsuarioService,
     private storageService: StorageService
   ) {
-    this.form = this.fb.group({
-      id: [null, Validators.required],
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')]],
-      senha: ['', Validators.required],
-      tipo: ['U', Validators.required],
-      ativo: [true, Validators.required]
-    });
+    
   }
 
   ngOnInit() {
@@ -39,9 +32,21 @@ export class UsuarioComponent implements OnInit {
     if (this.usuarioLogado.tipo == 'U') {
       this.router.navigate(['home']);
     }
+    this.iniciaForm();
     this.iniciaNovoUsuario();
     this.sub = this.route.params.subscribe((usuario: UsuarioDTO) => {
       this.selecionaUsuario(usuario);
+    });
+  }
+
+  iniciaForm() {
+    this.form = this.fb.group({
+      id: [null, Validators.required],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$')]],
+      senha: ['', Validators.required],
+      tipo: ['U', Validators.required],
+      ativo: [true, Validators.required]
     });
   }
 
@@ -65,9 +70,9 @@ export class UsuarioComponent implements OnInit {
   }
 
   salvaUsuario() {
-    if (!this.form.valid) {
-      return;
-    }
+    /*if (!this.form.valid) {
+      return; - verificar dados vazios
+    } */
 
     this.form.controls.tipo.setValue(this.form.controls.tipo.value ? 'A' : 'U');
     if (this.form.controls.id.value == null) {

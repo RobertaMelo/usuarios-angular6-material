@@ -57,7 +57,11 @@ export class TableUsuariosComponent implements OnInit {
   excluiUsuario(usuario: UsuarioDTO) {
     this.usuarioService.exclui(usuario.id)
     .subscribe(response => {
-      console.log('Excluido com sucesso!');
+      console.log('Excluido com sucesso!' + usuario.id);
+      this.usuarioLogado = this.storageService.getLocalUser();
+      if (this.usuarioLogado.id == usuario.id) {
+        this.router.navigate(['login']);
+      }
       this.buscaUsuarios();
     }, error => {
       console.log(error);

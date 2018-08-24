@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TemplateComponent } from './template/template.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule, MatCheckboxModule, MatSlideToggleModule } from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +17,7 @@ import { TableUsuariosComponent } from './home/table-usuarios/table-usuarios.com
 import { UsuarioService } from '../services/usuario.service';
 import { StorageService } from '../services/storage.service';
 import { AuthService } from '../services/auth.service';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -35,22 +35,10 @@ import { AuthService } from '../services/auth.service';
     FlexLayoutModule,
     HttpClientModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatCardModule, 
-    MatFormFieldModule, 
-    MatInputModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
+    MaterialModule,
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
   ],
   providers: [
     UsuarioService,

@@ -12,9 +12,9 @@
       "id": 2,
       "name": "Ademilson",
       "email": "admin",
-      "senha": "admin",
-      "ativo": true,
-      "tipo": "A"
+      "senha": "1234",
+      "tipo": "A",
+      "ativo": true
     },
     {
       "id": 3,

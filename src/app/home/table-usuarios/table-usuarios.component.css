@@ -14,3 +14,9 @@
 table {
     width: 100%;
 }
+
+.paginator {
+    width: 100%;
+    text-align: right;
+    margin-right: 10px;
+}

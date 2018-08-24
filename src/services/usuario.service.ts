@@ -4,12 +4,19 @@ import { UsuarioDTO } from '../models/usuario.dto';
 import { API_CONFIG } from '../config/api.config';
 import { Observable } from 'rxjs';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+  usuarioLogado: UsuarioDTO;  
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    ) { 
+    
+  }
 
   salva(usuario: UsuarioDTO) {
     return this.http.post(
@@ -41,7 +48,8 @@ export class UsuarioService {
             responseType: 'text'
         }
     ); 
-  }
+    
+}
 
   buscaTodos(): Observable<any> {
     return this.http.get<any>(`${API_CONFIG.baseUrl}/users`);
@@ -55,7 +63,7 @@ export class UsuarioService {
                 error('Usuário ou senha inválidos');
             }
             let usuarioEncontrado = usuariosFilter[0];
-            if (!usuarioEncontrado.ativo) {
+            if (usuarioEncontrado && !usuarioEncontrado.ativo) {
                 error('Usuário inativo');
             }
             resolve(usuarioEncontrado);

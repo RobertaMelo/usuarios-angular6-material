@@ -3,10 +3,10 @@
     <mat-card>
         <div class="center logo-login">
         <img src="/assets/img/creativeDrive-logo.png" alt="Logo" class="height-login padding">
-        <h1 style="font-weight: light;" class="full-width-input ">Login</h1>
+        <h1 style="font-weight: light;" class="full-width-input ">Bem vindo!</h1>
         </div>  
         <mat-card-content> 
-          <form [formGroup]="form">
+          <form [formGroup]="form" (ngSubmit)="login()">
             <div class="tm-50">
               <mat-form-field class="full-width-input">
                 <input matInput formControlName="email" required>
@@ -28,7 +28,7 @@
             </div>
             <mat-error *ngIf="mensagemErro">{{mensagemErro}}</mat-error>
             <div class="right">
-              <button (click)="login()" mat-stroked-button class="button-login"><i class="material-icons">
+              <button mat-stroked-button class="button-login"><i class="material-icons">
                 </i>Entrar</button>  
             </div>   
           </form>

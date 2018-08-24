@@ -1,5 +1,5 @@
 <mat-card-content> 
-  <form fxLayout="column" [formGroup]="form">
+  <form fxLayout="column" [formGroup]="form" (ngSubmit)="salvaUsuario()">
     <input type="hidden" formControlName="id">
     <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
       <mat-form-field fxFlex>
@@ -18,7 +18,7 @@
 
     <div class="input-row">
       <mat-form-field fxFlex>
-        <input matInput placeholder="Senha" formControlName="senha" required>
+        <input type="password" matInput placeholder="Senha" formControlName="senha" required>
         <mat-error *ngIf="isFieldInvalid('senha')">
             Você deve digitar uma senha
         </mat-error>
@@ -32,10 +32,10 @@
 
     <div class="input-row">
       <div class="button-style">
-        <button (click)="salvaUsuario()" mat-stroked-button>Salvar</button>  
+        <button mat-stroked-button>Salvar</button>  
       </div>
       <div class="button-style">
-        <button (click)="iniciaNovoUsuario()" mat-raised-button class="button-color">Cancelar</button>
+        <button (click)="iniciaNovoUsuario()" [routerLink]="['/home']" mat-raised-button class="button-color">Cancelar</button>
       </div> 
     </div>
   </form>
